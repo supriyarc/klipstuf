@@ -1,0 +1,283 @@
+{
+   "title": "Revenue by Country",
+   "id": "32baba588efc3cd484484a33d50bc376",
+   "workspace": {
+      "dimensions": {
+         "w": 550
+      },
+      "datasources": [
+         "189dd673c8a048a8e3140970c45ba72d",
+         "949e9abaa9baffe89a823ced15f39316"
+      ]
+   },
+   "appliedMigrations": {
+      "post_dst": true,
+      "separate_root_dsts": true,
+      "result_rows2": true
+   },
+   "components": [
+      {
+         "type": "tile_map",
+         "id": "7ff062dd-1",
+         "displayName": "Map",
+         "size": 2,
+         "dstContext": {
+            "id": "dst7ff062dd1"
+         },
+         "components": [
+            {
+               "type": "map_region",
+               "role": "tile_regions",
+               "id": "d78ea17c-2",
+               "displayName": "Regions",
+               "dstContext": {
+                  "id": "dstd78ea17c2",
+                  "kid": "32baba588efc3cd484484a33d50bc376",
+                  "ops": [
+                     {
+                        "type": "filter",
+                        "filterBy": "32779ec74",
+                        "variation": "numeric_range",
+                        "p": {
+                           "type": "f",
+                           "f": "and",
+                           "args": [
+                              {
+                                 "type": "op",
+                                 "dim": "32779ec74",
+                                 "op": ">=",
+                                 "value": 1000
+                              },
+                              {
+                                 "type": "op",
+                                 "dim": "32779ec74",
+                                 "op": "<=",
+                                 "value": 15000
+                              }
+                           ]
+                        }
+                     }
+                  ],
+                  "aggs": {
+                     "32779ec74": "auto"
+                  }
+               },
+               "components": [
+                  {
+                     "type": "proxy",
+                     "role": "region_id",
+                     "id": "280fc29e-3",
+                     "displayName": "ID",
+                     "fmt": "txt",
+                     "fmtArgs": {
+                        "resultMetadata": {
+                           "ignoreDateFormat": false,
+                           "isAggregated": false,
+                           "formulaIsDataPointer": true,
+                           "suggestedName": "Unnamed 1",
+                           "isDSTApplied": true,
+                           "resultCount": 1
+                        },
+                        "autoFmt": {
+                           "fmtArgs": {},
+                           "defaultAggregate": "COUNT",
+                           "fmt": "txt"
+                        }
+                     },
+                     "formulas": [
+                        {
+                           "txt": "949e9abaa9baffe89a823ced15f39316@Sheet1,B2:B22;",
+                           "ver": 2
+                        }
+                     ],
+                     "data": [
+                        [
+                           "CA",
+                           "CA",
+                           "CA",
+                           "CA",
+                           "CA",
+                           "CA",
+                           "CA",
+                           "CA",
+                           "US",
+                           "US",
+                           "US",
+                           "US",
+                           "US",
+                           "MX",
+                           "MX",
+                           "MX",
+                           "MX",
+                           "MX",
+                           "MX"
+                        ]
+                     ],
+                     "autoFmt": true
+                  },
+                  {
+                     "type": "map_tooltip_prop",
+                     "role": "region_color",
+                     "id": "32779ec7-4",
+                     "displayName": "Color",
+                     "fmt": "num",
+                     "fmtArgs": {
+                        "precision": "0",
+                        "resultMetadata": {
+                           "ignoreDateFormat": false,
+                           "isAggregated": false,
+                           "formulaIsDataPointer": true,
+                           "suggestedName": "Unnamed 1",
+                           "isDSTApplied": true,
+                           "resultCount": 1
+                        }
+                     },
+                     "formulas": [
+                        {
+                           "txt": "189dd673c8a048a8e3140970c45ba72d@Sheet1,D2:D22;",
+                           "ver": 2
+                        }
+                     ],
+                     "data": [
+                        [
+                           10000,
+                           5000,
+                           3000,
+                           15000,
+                           2000,
+                           8500,
+                           7000,
+                           1000,
+                           3000,
+                           10000,
+                           5000,
+                           3000,
+                           15000,
+                           2000,
+                           8500,
+                           7000,
+                           1000,
+                           3000,
+                           4750
+                        ]
+                     ],
+                     "autoFmt": false,
+                     "valueType": "color"
+                  },
+                  {
+                     "type": "map_tooltip_prop",
+                     "role": "region_desc",
+                     "id": "25c175f6-5",
+                     "displayName": "Description",
+                     "formulas": [],
+                     "data": [],
+                     "autoFmt": true,
+                     "valueType": "description"
+                  },
+                  {
+                     "type": "map_link",
+                     "role": "region_xref",
+                     "id": "cbd8db65-6",
+                     "displayName": "Link",
+                     "formulas": [],
+                     "data": [],
+                     "autoFmt": true
+                  }
+               ]
+            },
+            {
+               "type": "map_marker",
+               "role": "tile_markers",
+               "id": "6d48cd1f-7",
+               "displayName": "Markers",
+               "dstContext": {
+                  "id": "dst6d48cd1f7",
+                  "kid": "32baba588efc3cd484484a33d50bc376"
+               },
+               "components": [
+                  {
+                     "type": "proxy",
+                     "role": "marker_lat",
+                     "id": "0094899f-8",
+                     "displayName": "Latitude",
+                     "formulas": [],
+                     "data": [],
+                     "autoFmt": true
+                  },
+                  {
+                     "type": "proxy",
+                     "role": "marker_lng",
+                     "id": "73121a54-9",
+                     "displayName": "Longitude",
+                     "formulas": [],
+                     "data": [],
+                     "autoFmt": true
+                  },
+                  {
+                     "type": "map_tooltip_prop",
+                     "role": "marker_name",
+                     "id": "f31a6508-10",
+                     "displayName": "Name",
+                     "formulas": [],
+                     "data": [],
+                     "autoFmt": true,
+                     "valueType": "name"
+                  },
+                  {
+                     "type": "map_tooltip_prop",
+                     "role": "marker_color",
+                     "id": "d7b847b3-11",
+                     "displayName": "Color",
+                     "fmt": "num",
+                     "fmtArgs": {
+                        "autoFmt": {
+                           "fmtArgs": {
+                              "precision": "0"
+                           },
+                           "defaultAggregate": "SUM",
+                           "fmt": "num"
+                        }
+                     },
+                     "formulas": [],
+                     "data": [],
+                     "autoFmt": true,
+                     "valueType": "color"
+                  },
+                  {
+                     "type": "map_tooltip_prop",
+                     "role": "marker_size",
+                     "id": "60ea8d41-12",
+                     "displayName": "Size",
+                     "fmt": "num",
+                     "formulas": [],
+                     "data": [],
+                     "autoFmt": true,
+                     "valueType": "size"
+                  },
+                  {
+                     "type": "map_tooltip_prop",
+                     "role": "marker_desc",
+                     "id": "43dd9881-13",
+                     "displayName": "Description",
+                     "formulas": [],
+                     "data": [],
+                     "autoFmt": true,
+                     "valueType": "description"
+                  },
+                  {
+                     "type": "map_link",
+                     "role": "marker_xref",
+                     "id": "81964142-14",
+                     "displayName": "Link",
+                     "formulas": [],
+                     "data": [],
+                     "autoFmt": true
+                  }
+               ]
+            }
+         ],
+         "mapId": "world_en",
+         "focusScale": 1
+      }
+   ]
+}

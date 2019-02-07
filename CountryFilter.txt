@@ -1,0 +1,87 @@
+{
+   "title": "Country Filter",
+   "id": "4c7c3f1c736cf8cde759afa09d44a456",
+   "workspace": {
+      "dimensions": {
+         "w": 550
+      },
+      "datasources": [
+         "f737af1a270fb618fdf9245113c58e5d"
+      ]
+   },
+   "appliedMigrations": {
+      "post_dst": true,
+      "separate_root_dsts": true,
+      "result_rows2": true
+   },
+   "components": [
+      {
+         "type": "input",
+         "id": "d69aca4c-1",
+         "displayName": "User Input Control",
+         "dstContext": {
+            "id": "dstd69aca4c1",
+            "kid": "4c7c3f1c736cf8cde759afa09d44a456"
+         },
+         "components": [
+            {
+               "type": "proxy",
+               "role": "values",
+               "id": "47016a10-2",
+               "displayName": "Values",
+               "fmtArgs": {
+                  "resultMetadata": {
+                     "ignoreDateFormat": false,
+                     "isAggregated": false,
+                     "formulaIsDataPointer": false,
+                     "suggestedName": "Unnamed 1",
+                     "resultCount": 1
+                  }
+               },
+               "formulas": [
+                  {
+                     "txt": "GROUP(f737af1a270fb618fdf9245113c58e5d@Sheet1,A2:A22;)",
+                     "ver": 2
+                  }
+               ],
+               "data": [
+                  [
+                     "Canada",
+                     "Mexico",
+                     "United States"
+                  ]
+               ],
+               "autoFmt": false
+            },
+            {
+               "type": "proxy",
+               "role": "labels",
+               "id": "2de0ceeb-3",
+               "displayName": "Labels",
+               "fmtArgs": {
+                  "resultMetadata": {
+                     "ignoreDateFormat": false,
+                     "isAggregated": false,
+                     "formulaIsDataPointer": false,
+                     "suggestedName": "Unnamed 1",
+                     "resultCount": 1
+                  }
+               },
+               "formulas": [
+                  {
+                     "txt": "$Canada",
+                     "ver": 2
+                  }
+               ],
+               "data": [],
+               "autoFmt": false
+            }
+         ],
+         "scope": 3,
+         "propName": "country",
+         "defaultValue": "_all_",
+         "inputType": 1,
+         "includeAllData": true
+      }
+   ]
+}

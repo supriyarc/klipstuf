@@ -1,0 +1,233 @@
+{
+   "title": "Revenue by City",
+   "id": "b240f2f60b65d02466407fc1894ef627",
+   "workspace": {
+      "dimensions": {
+         "w": 584
+      },
+      "datasources": [
+         "f88111533ca7c0e2f9f86e8772f46593"
+      ]
+   },
+   "appliedMigrations": {
+      "post_dst": true,
+      "separate_root_dsts": true,
+      "result_rows2": true
+   },
+   "components": [
+      {
+         "type": "chart_pie",
+         "id": "536b3078-1",
+         "displayName": "Pie Chart",
+         "size": 2,
+         "dstContext": {
+            "id": "dst536b30781",
+            "kid": "b240f2f60b65d02466407fc1894ef627",
+            "ops": [
+               {
+                  "type": "filter",
+                  "filterBy": "c574af832",
+                  "variation": "numeric_range",
+                  "p": {
+                     "type": "f",
+                     "f": "or",
+                     "args": [
+                        {
+                           "type": "op",
+                           "dim": "c574af832",
+                           "op": "=",
+                           "value": {
+                              "type": "f",
+                              "f": "blank"
+                           }
+                        },
+                        {
+                           "type": "f",
+                           "f": "and",
+                           "args": [
+                              {
+                                 "type": "op",
+                                 "dim": "c574af832",
+                                 "op": ">=",
+                                 "value": 0
+                              },
+                              {
+                                 "type": "op",
+                                 "dim": "c574af832",
+                                 "op": "<=",
+                                 "value": 20000
+                              }
+                           ]
+                        }
+                     ]
+                  }
+               },
+               {
+                  "type": "filter",
+                  "filterBy": "b6732d6d3",
+                  "variation": "condition",
+                  "displayName": "Multiple Conditions",
+                  "p": {
+                     "type": "f",
+                     "f": "and",
+                     "args": [
+                        {
+                           "type": "f",
+                           "f": "matches_insensitive",
+                           "args": [
+                              {
+                                 "dim": "b6732d6d3"
+                              },
+                              {
+                                 "var": "country"
+                              }
+                           ]
+                        }
+                     ]
+                  }
+               },
+               {
+                  "type": "group",
+                  "groupBy": "1230d5763"
+               }
+            ],
+            "aggs": {
+               "c574af832": "auto",
+               "b6732d6d3": "auto"
+            }
+         },
+         "components": [
+            {
+               "type": "series_data",
+               "role": "data",
+               "id": "c574af83-2",
+               "displayName": "Values",
+               "fmt": "num",
+               "fmtArgs": {
+                  "autoFmt": {
+                     "fmtArgs": {
+                        "precision": "0"
+                     },
+                     "defaultAggregate": "SUM",
+                     "fmt": "num"
+                  },
+                  "resultMetadata": {
+                     "ignoreDateFormat": false,
+                     "isAggregated": true,
+                     "formulaIsDataPointer": true,
+                     "suggestedName": "Unnamed 1",
+                     "isGrouped": true,
+                     "isDSTApplied": true,
+                     "resultCount": 1
+                  }
+               },
+               "formulas": [
+                  {
+                     "txt": "f88111533ca7c0e2f9f86e8772f46593@Sheet1,D2:D22;",
+                     "ver": 2
+                  }
+               ],
+               "data": [
+                  [
+                     18000,
+                     17000,
+                     16500,
+                     20000,
+                     13000,
+                     23000,
+                     10500,
+                     28000,
+                     7750
+                  ]
+               ],
+               "autoFmt": true
+            },
+            {
+               "type": "series_labels",
+               "role": "labels",
+               "id": "1230d576-3",
+               "displayName": "Labels",
+               "fmt": "txt",
+               "fmtArgs": {
+                  "resultMetadata": {
+                     "ignoreDateFormat": false,
+                     "isAggregated": false,
+                     "formulaIsDataPointer": true,
+                     "suggestedName": "Unnamed 1",
+                     "isGrouped": true,
+                     "isDSTApplied": true,
+                     "resultCount": 1
+                  }
+               },
+               "formulas": [
+                  {
+                     "txt": "f88111533ca7c0e2f9f86e8772f46593@Sheet1,B2:B22;",
+                     "ver": 2
+                  }
+               ],
+               "data": [
+                  [
+                     "Ottawa",
+                     "Vancouver",
+                     "Regina",
+                     "Yellowknife",
+                     "New York",
+                     "Chicago",
+                     "Mexico City",
+                     "Acapulco",
+                     "Cancun"
+                  ]
+               ],
+               "autoFmt": false
+            },
+            {
+               "type": "data_slot",
+               "role": "data",
+               "id": "b6732d6d-3",
+               "displayName": "Country",
+               "fmt": "txt",
+               "fmtArgs": {
+                  "resultMetadata": {
+                     "ignoreDateFormat": true,
+                     "isAggregated": true,
+                     "formulaIsDataPointer": true,
+                     "suggestedName": "Unnamed 1",
+                     "isGrouped": true,
+                     "isDSTApplied": true,
+                     "resultCount": 1
+                  },
+                  "autoFmt": {
+                     "fmtArgs": {},
+                     "defaultAggregate": "COUNT",
+                     "fmt": "txt"
+                  }
+               },
+               "isDstRoot": false,
+               "formulas": [
+                  {
+                     "txt": "f88111533ca7c0e2f9f86e8772f46593@Sheet1,A2:A22;",
+                     "ver": 2
+                  }
+               ],
+               "data": [
+                  [
+                     3,
+                     2,
+                     3,
+                     1,
+                     2,
+                     3,
+                     2,
+                     3,
+                     2
+                  ]
+               ],
+               "autoFmt": true,
+               "name": "Country"
+            }
+         ],
+         "legend_items": "15",
+         "legend_percentages": "0"
+      }
+   ]
+}

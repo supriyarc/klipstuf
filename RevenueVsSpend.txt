@@ -1,0 +1,332 @@
+{
+   "title": "Company Revenue vs Spend",
+   "id": "7c1d2d6c691a1dd35a964f3379de8bba",
+   "padding": "21",
+   "innerPadding": "21",
+   "workspace": {
+      "dimensions": {
+         "w": 550
+      },
+      "datasources": [
+         "c63a746b9a0554189225decf4bea0e97"
+      ]
+   },
+   "appliedMigrations": {
+      "post_dst": true,
+      "separate_root_dsts": true,
+      "result_rows2": true
+   },
+   "components": [
+      {
+         "type": "chart_series",
+         "id": "d84eeabe-1",
+         "displayName": "Bar/Line Chart",
+         "dstContext": {
+            "id": "dstd84eeabe1",
+            "kid": "7c1d2d6c691a1dd35a964f3379de8bba",
+            "ops": [
+               {
+                  "type": "filter",
+                  "filterBy": "191ea5dd1",
+                  "variation": "condition",
+                  "displayName": "Multiple Conditions",
+                  "p": {
+                     "type": "f",
+                     "f": "and",
+                     "args": [
+                        {
+                           "type": "f",
+                           "f": "matches_insensitive",
+                           "args": [
+                              {
+                                 "dim": "191ea5dd1"
+                              },
+                              {
+                                 "var": "country"
+                              }
+                           ]
+                        }
+                     ]
+                  }
+               }
+            ]
+         },
+         "components": [
+            {
+               "type": "series_data",
+               "role": "series",
+               "id": "3b70b3ca-2",
+               "displayName": "Spend",
+               "renamed": true,
+               "fmt": "num",
+               "fmtArgs": {
+                  "autoFmt": {
+                     "fmtArgs": {
+                        "precision": "0"
+                     },
+                     "defaultAggregate": "SUM",
+                     "fmt": "num"
+                  },
+                  "resultMetadata": {
+                     "ignoreDateFormat": false,
+                     "isAggregated": true,
+                     "formulaIsDataPointer": false,
+                     "suggestedName": "Unnamed 1",
+                     "resultCount": 1
+                  }
+               },
+               "formulas": [
+                  {
+                     "txt": "GROUPBY(c63a746b9a0554189225decf4bea0e97@Sheet1,C2:C22;,c63a746b9a0554189225decf4bea0e97@Sheet1,E2:E22;)",
+                     "ver": 2
+                  }
+               ],
+               "data": [
+                  [
+                     11000,
+                     3000,
+                     5500,
+                     13000,
+                     5000,
+                     7500,
+                     21000,
+                     4000,
+                     5000,
+                     12000,
+                     2750,
+                     3500,
+                     6000,
+                     15000,
+                     11700,
+                     "",
+                     "",
+                     "",
+                     "",
+                     "",
+                     ""
+                  ]
+               ],
+               "autoFmt": true,
+               "seriesName": "Spend",
+               "axis": "6aad740d-4",
+               "overrideColor": true,
+               "color": "cx-theme_green_4"
+            },
+            {
+               "type": "series_data",
+               "role": "series",
+               "id": "4a1c5aff-8",
+               "displayName": "Revenue",
+               "renamed": true,
+               "fmt": "num",
+               "fmtArgs": {
+                  "resultMetadata": {
+                     "ignoreDateFormat": false,
+                     "isAggregated": true,
+                     "formulaIsDataPointer": false,
+                     "suggestedName": "Unnamed 1",
+                     "resultCount": 1
+                  },
+                  "autoFmt": {
+                     "fmtArgs": {
+                        "precision": "0"
+                     },
+                     "defaultAggregate": "SUM",
+                     "fmt": "num"
+                  }
+               },
+               "conditions": [
+                  {
+                     "predicates": [
+                        {
+                           "left": {
+                              "self": 1
+                           },
+                           "type": "lt",
+                           "right": {
+                              "cx": "3b70b3ca-2"
+                           }
+                        }
+                     ],
+                     "reactions": [
+                        {
+                           "type": "color",
+                           "value": "#ff0000"
+                        }
+                     ]
+                  }
+               ],
+               "formulas": [
+                  {
+                     "txt": "GROUPBY(c63a746b9a0554189225decf4bea0e97@Sheet1,C2:C22;,c63a746b9a0554189225decf4bea0e97@Sheet1,D2:D22;)",
+                     "ver": 2
+                  }
+               ],
+               "data": [
+                  [
+                     15000,
+                     5000,
+                     6000,
+                     15000,
+                     8500,
+                     7000,
+                     25000,
+                     3000,
+                     10000,
+                     15000,
+                     3000,
+                     4750,
+                     7000,
+                     20000,
+                     9500,
+                     "",
+                     "",
+                     "",
+                     "",
+                     "",
+                     ""
+                  ]
+               ],
+               "autoFmt": true,
+               "seriesName": "Revenue",
+               "axis": "6aad740d-4",
+               "overrideColor": true,
+               "color": "cx-theme_blue_5"
+            },
+            {
+               "type": "chart_axis",
+               "role": "axis_x",
+               "id": "48a27bf7-3",
+               "displayName": "Cities",
+               "renamed": true,
+               "fmt": "txt",
+               "fmtArgs": {
+                  "resultMetadata": {
+                     "ignoreDateFormat": false,
+                     "isAggregated": false,
+                     "formulaIsDataPointer": false,
+                     "suggestedName": "Unnamed 1",
+                     "resultCount": 1
+                  },
+                  "autoFmt": {
+                     "fmtArgs": {},
+                     "defaultAggregate": "COUNT",
+                     "fmt": "txt"
+                  }
+               },
+               "formulas": [
+                  {
+                     "txt": "Group(c63a746b9a0554189225decf4bea0e97@Sheet1,C2:C22;)",
+                     "ver": 2
+                  }
+               ],
+               "data": [
+                  [
+                     "A",
+                     "B",
+                     "C",
+                     "D",
+                     "E",
+                     "F",
+                     "G",
+                     "P",
+                     "Q",
+                     "R",
+                     "U",
+                     "V",
+                     "X",
+                     "Y",
+                     "Z",
+                     "",
+                     "",
+                     "",
+                     "",
+                     "",
+                     ""
+                  ]
+               ],
+               "autoFmt": true,
+               "label": "Untitled",
+               "labelStagger": "1",
+               "labelDrop": "1",
+               "showLabelTicks": true
+            },
+            {
+               "type": "chart_axis",
+               "role": "axis_y",
+               "id": "6aad740d-4",
+               "displayName": "Untitled",
+               "renamed": true,
+               "fmt": "num",
+               "fmtArgs": {},
+               "formulas": [],
+               "data": [],
+               "autoFmt": true,
+               "dataDisabled": true,
+               "label": "Untitled",
+               "labelDrop": 0,
+               "grid": true
+            },
+            {
+               "type": "data_slot",
+               "role": "data",
+               "id": "191ea5dd-1",
+               "displayName": "Country",
+               "fmt": "txt",
+               "fmtArgs": {
+                  "resultMetadata": {
+                     "ignoreDateFormat": false,
+                     "isAggregated": false,
+                     "formulaIsDataPointer": true,
+                     "suggestedName": "Unnamed 1",
+                     "resultCount": 1
+                  },
+                  "autoFmt": {
+                     "fmtArgs": {},
+                     "defaultAggregate": "COUNT",
+                     "fmt": "txt"
+                  }
+               },
+               "isDstRoot": false,
+               "formulas": [
+                  {
+                     "txt": "c63a746b9a0554189225decf4bea0e97@Sheet1,A2:A22;",
+                     "ver": 2
+                  }
+               ],
+               "data": [
+                  [
+                     "Canada",
+                     "Canada",
+                     "Canada",
+                     "Canada",
+                     "Canada",
+                     "Canada",
+                     "Canada",
+                     "Canada",
+                     "Canada",
+                     "United States",
+                     "United States",
+                     "United States",
+                     "United States",
+                     "United States",
+                     "Mexico",
+                     "Mexico",
+                     "Mexico",
+                     "Mexico",
+                     "Mexico",
+                     "Mexico",
+                     "Mexico"
+                  ]
+               ],
+               "autoFmt": true,
+               "name": "Country"
+            }
+         ],
+         "stackBars": "0",
+         "stackLines": "0",
+         "stackAreas": "1",
+         "hideNullSeries": 1
+      }
+   ]
+}
